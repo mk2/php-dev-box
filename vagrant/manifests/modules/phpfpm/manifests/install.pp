@@ -24,6 +24,13 @@ class phpfpm::install (
   }
 
 ###
+# MySQL周り
+  package { "php5-mysql":
+    ensure  => installed,
+    require => Package["php5"],
+  }
+
+###
 # FPM周り
   package { "php5-fpm":
     ensure  => installed,

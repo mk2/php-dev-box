@@ -1,4 +1,4 @@
-# Basical PHP Development Environment with Vagrant & Puppet
+# Basical PHP Dev Box with Vagrant & Puppet on Debian
 
 ## OS
 Debian 7.6 Wheezy
@@ -12,8 +12,13 @@ Debian 7.6 Wheezy
 - PHP-Memcache (via dotdeb)
 - PHP-Runkit (via Github)
 - PHP-Timecop (via Github)
+- phpMyAdmin
+    + Port: 8081
 - Nginx (via Official)
 - Task-Japanese (Change locale to Japanese)
+- MySQL
+    + RootUserName: root
+    + RootUserPassword: <?= RootUserName ?>!
 
 ## Document Root
 - /opt/htdocs
