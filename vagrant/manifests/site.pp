@@ -8,7 +8,8 @@
 # - MySQL          : MySQL
 node default {
 
-  $mysqlRootPassword = "root!"
+  stage { "last": }
+  Stage["main"] -> Stage["last"]
 
 ###
 # 日本語化周り
@@ -25,7 +26,7 @@ node default {
 ###
 # MySQL周り
   class { "::mysql::server":
-    root_password    => $mysqlRootPassword,
+    root_password    => "root!",
   } ->
   mysql_user { "kitaro@localhost":
     ensure                   => "present",
@@ -56,6 +57,11 @@ node default {
     privileges               => ["ALL"],
     table                    => "*.*",
     user                     => "phpmyadmin@localhost",
-  } ->
-  class { "phpmyadmin": }
+  }
+
+###
+# phpmyadmin。mysqlやphpに依存するので、最後にインストールさせる
+  class { "phpmyadmin":
+    stage => "last",
+  }
 }
