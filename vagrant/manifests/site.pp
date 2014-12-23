@@ -28,21 +28,6 @@ node default {
   class { "::mysql::server":
     root_password    => "root!",
   } ->
-  mysql_user { "kitaro@localhost":
-    ensure                   => "present",
-    max_connections_per_hour => "0",
-    max_queries_per_hour     => "0",
-    max_updates_per_hour     => "0",
-    max_user_connections     => "0",
-    password_hash            => '*746EF78849114C26119970A7F2CF67414FEDE68C', # kitaro!
-  } ->
-  mysql_grant { "kitaro@localhost/*.*":
-    ensure                   => "present",
-    options                  => ["GRANT"],
-    privileges               => ["ALL"],
-    table                    => "*.*",
-    user                     => "kitaro@localhost",
-  } ->
   mysql_user { "phpmyadmin@localhost":
     ensure                   => "present",
     max_connections_per_hour => "0",
