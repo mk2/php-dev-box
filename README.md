@@ -1,4 +1,4 @@
-# Basical PHP Dev Box with Vagrant & Puppet on Debian
+# Basic PHP Dev Box with Vagrant & Puppet on Debian
 
 ## OS
 Debian 7.6 Wheezy
