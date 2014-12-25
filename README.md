@@ -18,7 +18,7 @@ Debian 7.6 Wheezy
     + Port: 8081
 - Nginx (via Official)
 - Task-Japanese (Change locale to Japanese)
-- MySQL
+- MySQL5.5
     + run on 'localhost'
     + RootUserName: root
     + RootUserPassword: <?= RootUserName ?>!
