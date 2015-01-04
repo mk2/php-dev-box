@@ -25,8 +25,32 @@ node default {
 
 ###
 # MySQL周り
+
+  $override_options = {
+    "mysqld" => {
+      "bind-address" => "0.0.0.0",
+    }
+  }
+
   class { "::mysql::server":
     root_password    => "root!",
+    override_options => $override_options,
+    restart          => true,
+  }  ->
+  mysql_user { "root@%":
+    ensure                   => "present",
+    max_connections_per_hour => "0",
+    max_queries_per_hour     => "0",
+    max_updates_per_hour     => "0",
+    max_user_connections     => "0",
+    password_hash            => '*3CC11D4B8A2DCD31D660959772068DE9943DA12D', # root!
+  } ->
+  mysql_grant { "root@%/*.*":
+    ensure                   => "present",
+    options                  => ["GRANT"],
+    privileges               => ["ALL"],
+    table                    => "*.*",
+    user                     => "root@%",
   } ->
   mysql_user { "phpmyadmin@localhost":
     ensure                   => "present",

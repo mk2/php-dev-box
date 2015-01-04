@@ -20,6 +20,7 @@ Debian 7.6 Wheezy
 - Task-Japanese (Change locale to Japanese)
 - MySQL5.5
     + run on 'localhost'
+    + port: 3306
     + RootUserName: root
     + RootUserPassword: <?= RootUserName ?>!
 
