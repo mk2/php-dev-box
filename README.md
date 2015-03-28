@@ -1,7 +1,7 @@
 # Basic PHP Dev Box with Vagrant & Puppet on Debian
 
 ## OS
-Debian 7.6 Wheezy
+Debian 7.8 Wheezy
 
 ## Puppet install modules
 
